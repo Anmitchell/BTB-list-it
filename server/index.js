@@ -1,6 +1,7 @@
 require("dotenv").config();
 const connectToDatabase = require("./config/database");
 const express = require("express");
+const cors = require("cors");
 
 const app = express(); // Instance of express application
 const port = process.env.PORT || 3000; // Port server will be running on
