@@ -1,25 +1,22 @@
-const express = require('express');
-
+const express = require("express");
 const router = express.Router();
+const {
+  getTodos,
+  createTodo,
+  updateTodo,
+  deleteTodo,
+} = require("../controllers/todoController");
 
 // Get Todo
-router.get('/todos', (req, res) => {
-  res.status(200).json({ message: 'Get Request To /api/todos' });
-});
+router.get("/todo", getTodos);
 
 // Post(Create) Todo
-router.post('/todos', (req, res) => {
-  res.status(201).json({ message: 'Post Request To /api/todos' });
-});
-
-// Delete Todo
-router.delete('/todos/:id', (req, res) => {
-  res.status(200).json({ message: 'Delete Request To /api/todos' });
-});
+router.post("/todo", createTodo);
 
 // Put(Edit) Todo
-router.put('todos', (req, res) => {
-  res.status(200).json({ message: 'Put Request To /api/todos' });
-});
+router.put("/todo:id", updateTodo);
+
+// Delete Todo
+router.delete("/todo:id", deleteTodo);
 
 module.exports = router;
